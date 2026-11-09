@@ -32,6 +32,7 @@ def handle_events():
 def use_item(item_number):
     if item_number == 0:
         game_world.remove_objects_of_type(Ball)
+        boy.ball_image_name = None
     elif item_number in (1, 2):
         boy.ball_image_name = (
             'ball21x21.png' if item_number == 1 else 'ball41x41.png'
