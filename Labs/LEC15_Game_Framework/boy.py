@@ -18,6 +18,7 @@ class Boy:
         self.dir = 0
         self.face_dir = 1
         self.pressed_keys = set()
+        self.ball_image_name = 'ball21x21.png'
 
         self.machine = Machine(
             model=self,
@@ -47,8 +48,8 @@ class Boy:
         self.frame = 0
 
     def fire_ball(self):
-        ball = Ball(self.x, self.y, self.face_dir * 10)
-        game_world.add_oject(ball)
+        ball = Ball(self.x, self.y, self.face_dir * 10, self.ball_image_name)
+        game_world.add_object(ball)
 
     def handle_event(self, event):
         if (event.type == SDL_KEYDOWN and
