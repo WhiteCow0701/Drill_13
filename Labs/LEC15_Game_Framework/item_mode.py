@@ -32,5 +32,7 @@ def handle_events():
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_i:
             game_framework.pop_mode()
+        elif event.type == SDL_KEYDOWN and event.key in (SDLK_0, SDLK_1, SDLK_2):
+            play_mode.use_item(event.key - SDLK_0)
         else:
             play_mode.handle_event(event)

@@ -1,6 +1,6 @@
 world = [[], [], []]  # 0: 배경, 1: 오브젝트, 2: UI
 
-def add_oject(o, depth=1):
+def add_object(o, depth=1):
     world[depth].append(o)
 
 def remove_object(o):
@@ -8,6 +8,10 @@ def remove_object(o):
         if o in layer:
             layer.remove(o)
             return
+
+def remove_objects_of_type(object_type):
+    for layer in world:
+        layer[:] = [o for o in layer if not isinstance(o, object_type)]
 
 def update():
     for layer in world:

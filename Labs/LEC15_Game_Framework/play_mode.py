@@ -2,6 +2,7 @@ from pico2d import *
 import game_world
 from boy import Boy
 from grass import Grass
+from ball import Ball
 
 
 def handle_event(event):
@@ -28,6 +29,13 @@ def handle_events():
     for event in get_events():
         handle_event(event)
 
+def use_item(item_number):
+    if item_number == 0:
+        game_world.remove_objects_of_type(Ball)
+    elif item_number in (1, 2):
+        image_name = 'ball21x21.png' if item_number == 1 else 'ball41x41.png'
+        ball = Ball(boy.x, boy.y, boy.face_dir * 10, image_name)
+        game_world.add_object(ball)
 
 def init():
     global boy
